@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      imagePulbicId: DataTypes.STRING,
+      imagePublicId: DataTypes.STRING,
       categoryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
