@@ -1,0 +1,164 @@
+[
+    {
+        "name": "Cheese Burger",
+        "description": "Burger daging sapi dengan lapisan keju yang dibalut saus spesial ala blenger",
+        "price": 35000,
+        "image_url": "https://assets-pergikuliner.com/L-QXybDxQwcdSS-0O5qXYqNnPTo=/312x0/smart/https://assets-pergikuliner.com/uploads/image/picture/2489439/picture-1651417284.jpg",
+        "category_id": "1",
+        "author_id": "1"    
+    },
+    {
+        "name": "Beef Burger",
+        "description": "Burger daging sapi yang dibalut saus spesial ala blenger",
+        "price": 30000,
+        "image_url": "https://media-cdn.yummyadvisor.com/store/791ab830-58c4-4927-a46f-f38cf0b861db.jpg?x-oss-process=style/type_15",
+        "category_id": "1",
+        "author_id": "1"    
+    },
+    {
+        "name": "Lemon Tea",
+        "description": "Teh dengan rasa lemon",
+        "price": 10000,
+        "image_url": "https://img.kurio.network/WxPFXZl82MHhCECqtuhoPykCdw4=/1200x1200/filters:quality(80)/https://kurio-img.kurioapps.com/21/07/04/9222c316-c84d-41b8-b523-25587f2de0fc.jpe",
+        "category_id": "2",
+        "author_id": "1"    
+    },    
+    {
+        "name": "French Fries",
+        "description": "Kentang goreng",
+        "price": 18000,
+        "image_url": "https://www.awesomecuisine.com/wp-content/uploads/2009/05/french-fries.jpg",
+        "category_id": "3",
+        "author_id": "1"    
+    },
+    {
+        "name": "Double Beef Burger",
+        "description": "Burger dengan isi dua lapis daging sapi yang dibalut saus spesial ala blenger",
+        "price": 40000,
+        "image_url": "https://assets-pergikuliner.com/3T4lO1Sc2b31yzdIBAm_7-pI2a4=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/1065050/picture-1536325877.jpg",
+        "category_id": "1",
+        "author_id": "1"    
+    },
+    {
+        "name": "Double Cheese Burger",
+        "description": "Burger dengan isi dua lapis daging sapi beserta dua lapisan keju yang dibalut saus spesial ala blenger",
+        "price": 45000,
+        "image_url": "https://assets-pergikuliner.com/YiJnmA3ySuoQQ2NkMi0apFz6T6o=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/563439/picture-1495116895.JPG",
+        "category_id": "1",
+        "author_id": "1"    
+    },
+    {
+        "name": "Curly Fries",
+        "description": "Ketang goreng curly ala blenger",
+        "price": 18000,
+        "image_url": "https://www.deliciouslyseasoned.com/wp-content/uploads/2022/04/AirFryerCurlyFries_07.jpg",
+        "category_id": "3",
+        "author_id": "2"    
+    },
+    {
+        "name": "Cheezy Fries",
+        "description": "Ketang goreng dengan balutan saus keju ala blenger",
+        "price": 22500,
+        "image_url": "https://www.cookwithnabeela.com/wp-content/uploads/2024/05/CheeseFries.webp",
+        "category_id": "3",
+        "author_id": "2"    
+    },
+    {
+        "name": "Chili Dog",
+        "description": "Hot dog saus pedas ala blenger",
+        "price": 30000,
+        "image_url": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/86b03af7-da75-4911-890a-d91dd9254636_04335a89-218e-41a8-af40-9fcc59b52411.jpg",
+        "category_id": "1",
+        "author_id": "2"    
+    },
+    {
+        "name": "Jumbo Chili Dog",
+        "description": "Hot dog ukuran super besar dengan saus pedas ala blenger",
+        "price": 38000,
+        "image_url": "https://www.hormel.com/brands/hormel-chili/wp-content/uploads/sites/4/Recipes_2400_Spicy-Chili-Dog.jpg?1732571085",
+        "category_id": "1",
+        "author_id": "2"    
+    },
+    {
+        "name": "Cheezy Dog",
+        "description": "Hot dog bertabur keju dengan saus pedas ala blenger",
+        "price": 35000,
+        "image_url": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a0021dc1-c4c4-4cf6-a369-2bd40a9aa83a_c1736b75-6a42-42db-aeca-d90ec6e80740.jpg",
+        "category_id": "1",
+        "author_id": "2"    
+    },
+    {
+        "name": "Jumbo Cheezy Dog",
+        "description": "Hot dog bertabur keju ukurang super besar dengan saus pedas ala blenger",
+        "price": 42000,
+        "image_url": "https://media.istockphoto.com/id/143175178/photo/chili-cheese-dog.jpg?s=612x612&w=0&k=20&c=og8kyVGQyJL2JgU586B51bl0eQGZgZ3YLeLve6Ycqrw=",
+        "category_id": "1",
+        "author_id": "2"    
+    },
+    {
+        "name": "Onion Rings",
+        "description": "Onion fries ala blenger",
+        "price": 18000,
+        "image_url": "https://www.recipeworkbook.com/wp-content/uploads/2021/09/onion-rings3.jpg",
+        "category_id": "2",
+        "author_id": "2"    
+    },
+    {
+        "name": "Mixed Fries",
+        "description": "Mixed french fries dan curly fries ala blenger",
+        "price": 24000,
+        "image_url": "https://img.freepik.com/premium-photo/mix-fries-french-fries-with-hash-browns-waffle-fries_1339-174034.jpg",
+        "category_id": "3",
+        "author_id": "2"    
+    },
+    {
+        "name": "Ice Coffe",
+        "description": "Fresh Coffe hot or with ice",
+        "price": 20000,
+        "image_url": "https://frostingandfettuccine.com/wp-content/uploads/2022/12/Instant-Iced-Coffee-5-1.jpg",
+        "category_id": "2",
+        "author_id": "2"    
+    },
+    {
+        "name": "Soft Drink",
+        "description": "Beberapa pilihan soda",
+        "price": 15000,
+        "image_url": "https://131490281.cdn6.editmysite.com/uploads/1/3/1/4/131490281/s386995860672184793_p11_i1_w500.jpeg",
+        "category_id": "2",
+        "author_id": "2"    
+    },
+    {
+        "name": "Milo",
+        "description": "Milo with ice or not",
+        "price": 15000,
+        "image_url": "https://media-order.bkdelivery.co.id/thumb/product_photo/2024/2/13/zjmzkfvb8fwk2q35zzxmkl_product_details.jpg",
+        "category_id": "2",
+        "author_id": "2"    
+    },
+    {
+        "name": "Mineral Water",
+        "description": "Mineral water 500ml",
+        "price": 10000,
+        "image_url": "https://store.mini-mart.co.id/wp-content/uploads/2020/10/le-mineral-600ml.jpg",
+        "category_id": "1",
+        "author_id": "2"    
+    },
+    {
+        "name": "Fruit Tea",
+        "description": "Fruit tea rasa blackcurrent 500ml",
+        "price": 15000,
+        "image_url": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-2901559/fruit-tea_fruit-tea-blackcurrant-minuman-teh--500-ml-_full02.jpg",
+        "category_id": "2",
+        "author_id": "2"    
+    },
+    {
+        "name": "Teh Pucuk",
+        "description": "Teh pucuk botol 500ml",
+        "price": 15000,
+        "image_url": "https://images.tokopedia.net/img/cache/700/product-1/2020/9/6/7938429/7938429_4b0161fd-c186-4641-acde-7615a1b00a3e_699_699",
+        "category_id": "2",
+        "author_id": "2"    
+    }
+
+
+]
