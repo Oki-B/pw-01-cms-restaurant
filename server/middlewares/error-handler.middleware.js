@@ -4,10 +4,32 @@ function errorHandler(err, req, res, next) {
 
   // Global Case
   switch (err.name) {
+    case "EmailRequired":
+      status = 400;
+      message = "Email tidak boleh kosong";
+      break;
+
+    case "PasswordRequired":
+      status = 400;
+      message = "Password tidak boleh kosong";
+      break;
+
+    case "InvalidCredentials":
+      status = 401;
+      message = " Email atau password yang anda masukan salah";
+      break;
+
+    case "Unathenticated":
+    case "JsonWebTokenError":
+      status = 401;
+      message = "Login untuk mendapatkan akses";
+      break;
+
     case "NotFound":
       status = 404;
       message = err.message;
       break;
+
     default:
       break;
   }
