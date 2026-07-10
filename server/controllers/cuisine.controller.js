@@ -30,6 +30,8 @@ class CuisineController {
   static async postCuisine(req, res, next) {
     try {
       // TODO: Create new cuisine
+      const { originalname, buffer } = req.file;
+      res.status(200).json({ originalname, buffer });
     } catch (err) {
       next(err);
     }

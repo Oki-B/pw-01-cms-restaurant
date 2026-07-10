@@ -4,12 +4,13 @@ const {
   authorizeOwnership,
 } = require("../middlewares/authorization.middleware");
 const { Cuisine } = require("../models/");
+const upload = require("../middlewares/multer.middleware");
 const router = express.Router();
 
 // Create new cuisine
 router.post(
   "/",
-  authorizeOwnership(Cuisine, `authorId`, `Cuisine`),
+  upload.single("imageFile"),
   CuisineController.postCuisine,
 );
 
@@ -17,6 +18,7 @@ router.post(
 router.put(
   "/:id",
   authorizeOwnership(Cuisine, `authorId`, `Cuisine`),
+  upload.single("imageFile"),
   CuisineController.editCuisine,
 );
 
