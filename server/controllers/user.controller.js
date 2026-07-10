@@ -7,7 +7,6 @@ class UserController {
       const users = await User.findAll();
       res.status(200).json(users);
     } catch (err) {
-      //   console.log(err);
       next(err);
     }
   }
@@ -16,7 +15,7 @@ class UserController {
     try {
       const { id } = req.params;
       const user = await User.findByPk(+id);
-      if (!user) throw { name: "NotFound", message: "User not found" };
+      if (!user) throw { name: "NotFound", message: "User tidak ditemukan" };
       res.status(200).json(user);
     } catch (err) {
       next(err);
@@ -46,7 +45,7 @@ class UserController {
 
   static async editUserProfile(req, res, next) {
     try {
-      const { id } = req.params;
+      const { id } = req.resources;
       const { name, phoneNumber, address } = req.body;
       const [rows, [user]] = await User.update(
         { name, phoneNumber, address },
@@ -70,6 +69,9 @@ class UserController {
       const { id } = req.params;
       const { email, password } = req.body;
 
+      const user = await User.findByPk(+id);
+      if (!user) throw { name: "NotFound", message: "User tidak ditemukan" };
+
       if (!email) throw { name: "EmailRequired" };
       if (!password) throw { name: "PasswordRequired" };
       if (password.length < 8)
@@ -79,7 +81,8 @@ class UserController {
         };
 
       const hashedPassword = hashPassword(password);
-      const [rows, [user]] = await User.update(
+
+      await User.update(
         {
           email,
           password: hashedPassword,
@@ -100,7 +103,7 @@ class UserController {
       const { id } = req.params;
 
       const user = await User.findByPk(+id);
-      if (!user) throw { name: "NotFound", message: "User not found" };
+      if (!user) throw { name: "NotFound", message: "User tidak ditemukan" };
 
       await User.destroy({
         where: {

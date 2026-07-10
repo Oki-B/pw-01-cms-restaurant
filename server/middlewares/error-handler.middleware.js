@@ -36,6 +36,11 @@ function errorHandler(err, req, res, next) {
       message = "Login untuk mendapatkan akses";
       break;
 
+    case "Forbidden":
+      status = 403;
+      message = err.message;
+      break;
+
     case "NotFound":
       status = 404;
       message = err.message;
