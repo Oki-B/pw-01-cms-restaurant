@@ -14,7 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.status("API for Restaurant CMS is Ready to use!")
+  res.status(200).json({
+    message: "API for Restaurant CMS is Ready to use!",
+  });
 });
 app.use(router);
 app.use(errorHandler);
