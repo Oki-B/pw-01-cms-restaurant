@@ -1,5 +1,8 @@
 const { Cuisine } = require("../models/");
-const { uploadToCloudinary } = require("../utils/cloudinary.util");
+const {
+  uploadToCloudinary,
+  deleteFromCloudinary,
+} = require("../utils/cloudinary.util");
 
 class CuisineController {
   static async getCuisines(req, res, next) {
@@ -28,7 +31,7 @@ class CuisineController {
     }
   }
 
-  static async postCuisine(req, res, next) {
+  static async createCuisine(req, res, next) {
     try {
       const { originalname, buffer } = req.file;
       const { name, description, price, categoryId } = req.body;
@@ -36,13 +39,16 @@ class CuisineController {
 
       if (!name)
         throw { name: "InvalidRequest", message: "nama tidak boleh kosong" };
+
       if (!description)
         throw {
           name: "InvalidRequest",
           message: "deskripsi tidak boleh kosong",
         };
+
       if (!price)
         throw { name: "InvalidRequest", message: "harga tidak boleh kosong" };
+
       if (!categoryId)
         throw {
           name: "InvalidRequest",
@@ -64,19 +70,54 @@ class CuisineController {
         authorId,
       });
 
-      res.status(200).json({
+      res.status(201).json({
         message: `Successfully create new cuisine`,
         object: cuisine,
       });
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }
 
   static async editCuisine(req, res, next) {
     try {
-      // TODO: Edit cuisine by ID
+      const { id, imagePublicId } = req.resources;
+      const { name, description, price, categoryId } = req.body;
+
+      // Handle image on cloudinary
+      let image = {};
+
+      if (req.file) {
+        image = await uploadToCloudinary(
+          req.file.buffer,
+          req.file.originalname,
+        );
+
+        if (imagePublicId) {
+          await deleteFromCloudinary(imagePublicId);
+        }
+      }
+
+      // Update to DB
+      const [rows, [updatedCuisine]] = await Cuisine.update(
+        {
+          name,
+          description,
+          price,
+          categoryId,
+          imageUrl: image.secure_url,
+          imagePublicId: image.public_id,
+        },
+        {
+          where: { id: +id },
+          returning: true,
+        },
+      );
+
+      res.status(200).json({
+        message: `Succesfully updating cuisine with id ${id}`,
+        updatedCuisine,
+      });
     } catch (err) {
       next(err);
     }
@@ -84,7 +125,16 @@ class CuisineController {
 
   static async deleteCuisine(req, res, next) {
     try {
-      // TODO: Delete cuisine by ID
+      const { id, name, imagePublicId } = req.resources;
+      await Cuisine.destroy({ where: { id } });
+
+      if (imagePublicId) {
+        await deleteFromCloudinary(imagePublicId);
+      }
+
+      res.status(200).json({
+        message: `Successfully deleting ${name} with id ${id}`,
+      });
     } catch (err) {
       next(err);
     }

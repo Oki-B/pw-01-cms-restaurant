@@ -8,11 +8,7 @@ const upload = require("../middlewares/multer.middleware");
 const router = express.Router();
 
 // Create new cuisine
-router.post(
-  "/",
-  upload.single("imageFile"),
-  CuisineController.postCuisine,
-);
+router.post("/", upload.single("imageFile"), CuisineController.createCuisine);
 
 // Edit cuisine by ID
 router.put(
