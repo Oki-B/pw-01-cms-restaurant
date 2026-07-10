@@ -14,16 +14,18 @@ router.delete("/:id", requireRoles("admin"), UserController.deleteUser); // Dele
 
 router.get("/:id", UserController.getUser); // Get user by Id
 
+// Change profile info
 router.patch(
   "/:id",
   authorizeOwnership(User, `id`, `User`),
   UserController.editUserProfile,
-); // Change profile info
+);
 
+// Change email and/or password
 router.patch(
   "/:id/credentials",
   requireRoles("admin"),
   UserController.editUserCredentials,
-); // Change email and/or password
+);
 
 module.exports = router;

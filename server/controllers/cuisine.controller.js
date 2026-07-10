@@ -26,6 +26,30 @@ class CuisineController {
       next(err);
     }
   }
+
+  static async postCuisine(req, res, next) {
+    try {
+      // TODO: Create new cuisine
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async editCuisine(req, res, next) {
+    try {
+      // TODO: Edit cuisine by ID
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async deleteCuisine(req, res, next) {
+    try {
+      // TODO: Delete cuisine by ID
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = CuisineController;
