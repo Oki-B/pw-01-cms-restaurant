@@ -4,6 +4,12 @@ function errorHandler(err, req, res, next) {
 
   // Global Case
   switch (err.name) {
+    case "SequelizeValidationError":
+    case "SequelizeUniqueConstraintError":
+      status = 400;
+      message = err.errors[0].message;
+      break;
+
     case "EmailRequired":
       status = 400;
       message = "Email tidak boleh kosong";
@@ -14,12 +20,17 @@ function errorHandler(err, req, res, next) {
       message = "Password tidak boleh kosong";
       break;
 
+    case "InvalidRequest":
+      status = 400;
+      message = err.message;
+      break;
+
     case "InvalidCredentials":
       status = 401;
       message = " Email atau password yang anda masukan salah";
       break;
 
-    case "Unathenticated":
+    case "Unauthenticated":
     case "JsonWebTokenError":
       status = 401;
       message = "Login untuk mendapatkan akses";

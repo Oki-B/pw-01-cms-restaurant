@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             msg: "Email tidak boleh kosong",
           },
+          isEmail: {
+            msg: "Email tidak sesuai format email.",
+          },
         },
       },
       password: {
@@ -51,10 +54,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: "Username tidak boleh kosong",
+            msg: "Nama tidak boleh kosong",
           },
           notEmpty: {
-            msg: "Username tidak boleh kosong",
+            msg: "Nama tidak boleh kosong",
           },
         },
       },
