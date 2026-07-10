@@ -43,6 +43,7 @@ function authorizeOwnership(Model, foreignKeyField, resourceName) {
       }
       next();
     } catch (err) {
+      console.log(err);
       next(err);
     }
   };

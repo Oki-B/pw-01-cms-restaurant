@@ -2,6 +2,20 @@ function errorHandler(err, req, res, next) {
   let status = 500;
   let message = "Internal Server Error";
 
+  // Case cloudinary
+  if (
+    err.http_code ||
+    (err.message &&
+      (err.message.includes("api_key") ||
+        err.message.includes("cloud_name") ||
+        err.message.includes("Cloudinary")))
+  ) {
+    status = err.http_code || 401;
+    message = `Cloudinary Error: ${err.message}`;
+    
+    return res.status(status).json({ message });
+  }
+
   // Global Case
   switch (err.name) {
     case "SequelizeValidationError":
