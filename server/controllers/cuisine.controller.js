@@ -1,4 +1,5 @@
-const { Cuisine } = require("../models/");
+const { Op } = require("sequelize");
+const { Cuisine, Category, User } = require("../models/");
 const {
   uploadToCloudinary,
   deleteFromCloudinary,
@@ -7,9 +8,83 @@ const {
 class CuisineController {
   static async getCuisines(req, res, next) {
     try {
-      const cuisines = await Cuisine.findAll();
+      const {
+        page = 1,
 
-      res.status(200).json(cuisines);
+        limit = 10,
+
+        search = "",
+
+        category,
+
+        author,
+
+        sortBy = "updatedAt",
+
+        sortOrder = "DESC",
+      } = req.query;
+
+      const offset = (Number(page) - 1) * Number(limit);
+
+      const where = {};
+
+      // Search by cuisine name
+
+      if (search) {
+        where.name = {
+          [Op.iLike]: `%${search}%`,
+        };
+      }
+
+      // Filter category
+
+      if (category) {
+        where.categoryId = category;
+      }
+
+      // Filter author
+
+      if (author) {
+        where.authorId = author;
+      }
+
+      const { rows, count } = await Cuisine.findAndCountAll({
+        where,
+
+        include: [
+          {
+            model: Category,
+            as: "category",
+            attributes: ["id", "name"],
+          },
+
+          {
+            model: User,
+            as: "author",
+            attributes: ["id", "name"],
+          },
+        ],
+
+        order: [[sortBy, sortOrder]],
+
+        limit: Number(limit),
+
+        offset,
+      });
+
+      res.status(200).json({
+        data: rows,
+
+        pagination: {
+          totalData: count,
+
+          totalPage: Math.ceil(count / limit),
+
+          currentPage: Number(page),
+
+          limit: Number(limit),
+        },
+      });
     } catch (err) {
       console.log(err);
       next(err);
