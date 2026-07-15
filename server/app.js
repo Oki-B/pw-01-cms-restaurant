@@ -13,6 +13,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("API for Restaurant CMS is Ready to use!");
+});
 app.use(router);
 app.use(errorHandler);
 
